@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors"; // ← Added this
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import fs from "fs"; // added this
+import path from "path"; // added this
 import authRoutes from "./routes/auth.js";
 import postRoutes from "./routes/posts.js";
 import errorHandler from "./middlewares/errorMiddleware.js";
@@ -32,6 +34,13 @@ app.use(errorHandler);
 
 const start = async () => {
   try {
+    // Ensure the uploads directory exists
+    const uploadDir = path.join(process.cwd(), "uploads");
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir);
+      console.log("✅ 'uploads' directory created");
+    }
+
     // Connect to MongoDB
     const connectionDB = await mongoose.connect(MONGO_URL);
     console.log(`✅ MongoDB Connected! Host: ${connectionDB.connection.host}`);
