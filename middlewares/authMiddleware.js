@@ -28,3 +28,4 @@ export const protect = async (req, res, next) => {
     res.status(401).json({ message: "Not authorized, token failed" });
   }
 };
+//this is to check that the user is logged in and has the right role to access the route

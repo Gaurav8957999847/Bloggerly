@@ -1,12 +1,22 @@
 import express from "express";
-import { login, register } from "../controllers/authControllers.js";
+import { register, login } from "../controllers/authControllers.js";
+import {
+  registerValidation,
+  loginValidation,
+} from "../middlewares/validator.js";
+import { validationResult } from "express-validator";
 
 const router = express.Router();
 
-//This is the register router that will be redirect the request to the register controller and the method will be post because we are sending the data to the server and the endpoint will be register
-router.post("/register", register);
+const validate = (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  next();
+};
 
-//This is the login router that will be redirect the request to the login controller and the method will be post because we are sending the data to the server and the endpoint will be login
-router.post("/login", login);
+router.post("/register", registerValidation, validate, register);
+router.post("/login", loginValidation, validate, login);
 
 export default router;

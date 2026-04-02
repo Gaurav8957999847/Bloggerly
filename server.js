@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.js";
 import postRoutes from "./routes/posts.js";
+import errorHandler from "./middlewares/errorMiddleware.js";
 
 dotenv.config();
 
@@ -22,14 +23,12 @@ app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
 
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(err.status || 500).json({
-    message: err.message || "Internal Server Error",
-    stack: process.env.NODE_ENV === "production" ? null : err.stack,
-  });
+app.get("/", async (req, res) => {
+  res.send("This is the root page");
 });
+
+// Error handling middleware
+app.use(errorHandler);
 
 const start = async () => {
   try {
