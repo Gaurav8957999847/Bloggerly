@@ -7,13 +7,14 @@
 [![MongoDB](https://img.shields.io/badge/Database-MongoDB-47A248?style=for-the-badge&logo=mongodb)](https://www.mongodb.com/)
 [![Express.js](https://img.shields.io/badge/Framework-Express.js-000000?style=for-the-badge&logo=express)](https://expressjs.com/)
 [![JWT](https://img.shields.io/badge/Auth-JWT-orange?style=for-the-badge&logo=json-web-tokens)](https://jwt.io/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-red?style=for-the-badge&logo=render)](https://bloggerly.onrender.com)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 ---
 
 **Bloggerly** is a high-performance, developer-first backend API. Crafted with precision, it's designed to be the backbone of sophisticated blogging platforms, delivering power, security, and elegance in every request.
 
-[Explore Endpoints](#-api-documentation) • [Setup Guide](#-getting-started) • [Technical Architecture](#-the-engine-room)
+[Live Site](https://bloggerly.onrender.com) • [Explore Endpoints](#-api-documentation) • [Setup Guide](#-getting-started) • [Technical Architecture](#-the-engine-room)
 
 </div>
 
@@ -56,6 +57,9 @@ A carefully architected directory structure ensures that **Bloggerly** remains m
 ---
 
 ## 📡 API Documentation
+
+> [!IMPORTANT]
+> **Base URL:** `https://bloggerly.onrender.com`
 
 ### 🔓 Public Access & Authentication
 | Method | Endpoint | Description | Status |
